@@ -1,0 +1,19 @@
+.classContainer > .container{
+  margin: 10vmax auto;
+
+}
+
+.img{
+  width: 17vmax;
+  border-radius: 100%;
+  transition: all 0.5s;
+}
+
+@media screen and (max-width: 865px) {
+  .classContainer >.container{
+    margin-top: 20vmax;
+  
+  }
+  
+
+}

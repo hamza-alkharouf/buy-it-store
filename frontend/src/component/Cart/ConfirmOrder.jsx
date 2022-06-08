@@ -1,0 +1,121 @@
+import React, { Fragment } from "react";
+import CheckoutSteps from "../Cart/CheckoutSteps";
+import { useSelector } from "react-redux";
+import MetaData from "../layout/MetaData";
+import "./ConfirmOrder.css";
+import { Link } from "react-router-dom";
+import { Typography } from "@material-ui/core";
+import { useTranslation } from 'react-i18next';
+
+const ConfirmOrder = ({ history }) => {
+  const { shippingInfo, cartItems } = useSelector((state) => state.cart);
+  const { user } = useSelector((state) => state.user);
+
+  const subtotal = cartItems.reduce(
+    (acc, item) => acc + item.quantity * item.price,
+    0
+  );
+
+  const shippingCharges = subtotal > 1000 ? 0 : 200;
+
+
+  const totalPrice = subtotal + shippingCharges;
+
+  const address = `${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.state}, ${shippingInfo.pinCode}, ${shippingInfo.country}`;
+
+  const proceedToPayment = () => {
+    const data = {
+      subtotal,
+      shippingCharges,
+      totalPrice,
+    };
+
+    sessionStorage.setItem("orderInfo", JSON.stringify(data));
+
+    history.push("/process/payment");
+  };
+  const [t, i18n]= useTranslation();
+
+  return (
+    <Fragment>
+      <MetaData title="Confirm Order" />
+      <div className=" margin">
+        <CheckoutSteps activeStep={1} />
+        <div className="confirmOrderPage ">
+          <div>
+            <div className="confirmshippingArea">
+              <Typography>{t('Shipping Info')}</Typography>
+              <div className="confirmshippingAreaBox">
+                <div>
+                  <p>{t('Name:')}</p>
+                  <span>{user.name}</span>
+                </div>
+                <div>
+                  <p>{t('Phone:')}</p>
+                  <span>{shippingInfo.phoneNo}</span>
+                </div>
+                <div>
+                  <p>{t('Address:')}</p>
+                  <span>{address}</span>
+                </div>
+              </div>
+            </div>
+            <div className="confirmCartItems">
+              <Typography>{t('Your Cart Items:')}</Typography>
+              <div className="confirmCartItemsContainer">
+                {cartItems &&
+                  cartItems.map((item) => (
+                    <div key={item.product}>
+                      <img src={item.image} alt="Product" />
+                      <Link to={`/product/${item.product}`}>
+                        {item.name}
+                      </Link>{" "}
+                      <span>
+                        {item.quantity} X ${item.price} ={" "}
+                        <b>${item.price * item.quantity}</b>
+                      </span>
+                    </div>
+                  ))}
+              </div>
+            </div>
+          </div>
+          {/*  */}
+          <div>
+            <div className="orderSummary">
+              <Typography>{t('Order Summary')}</Typography>
+              <div>
+                <div>
+                  <p>{t('Subtotal')}</p>
+                  <span>${subtotal}</span>
+                </div>
+                <div>
+                  <p>{t('Shipping Charges:')}</p>
+                  <span>${shippingCharges}</span>
+                </div>
+
+              </div>
+
+              <div className="orderSummaryTotal">
+                <p>
+                  <b>{t('Total')}:</b>
+                </p>
+                <span>${totalPrice}</span>
+              </div>
+
+              <input
+                type="submit"
+                value="Proceed To Payment"
+                className="cbtn"
+                onClick={proceedToPayment}
+              />
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </Fragment>
+  );
+};
+
+export default ConfirmOrder;

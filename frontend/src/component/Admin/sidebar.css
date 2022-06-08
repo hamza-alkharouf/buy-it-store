@@ -1,0 +1,72 @@
+.sidebar {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar > a:first-child {
+  padding: 0;
+}
+.sidebar > a > img {
+  margin-top: 3vmax;
+  margin-left: 3vmax;
+  width: 70px;
+
+  transition: all 0.5s;
+}
+
+.sidebar > a > img:hover {
+  filter: drop-shadow(0 0 10px rgb(118, 51, 142));
+}
+.sidebar a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.493);
+  font: 200 1rem "Roboto";
+  padding: 10px 20px;
+  transition: all 0.5s;
+}
+
+.sidebar a:hover {
+  color: rgb(118, 51, 142);
+  transform: scale(1.1);
+}
+
+.sidebar a > P {
+  display: flex;
+  align-items: center;
+}
+.sidebar a > p > svg {
+  margin-right: 5px;
+}
+
+.MuiTypography-root {
+  background-color: #fff !important;
+}
+
+@media screen and (max-width: 1170px) {
+  .sidebar {
+    margin-top: 3.5vmax;
+  }
+}
+@media screen and (max-width: 770px) {
+  .sidebar {
+    margin-top: 5.8vmax;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .sidebar {
+    margin-top: 10vmax;
+  }
+  .MuiTypography-root {
+    display: none;
+  }
+
+  .removetext {
+    display: none;
+  }
+
+  .sidebar > a > img {
+    display: none;
+  }
+}

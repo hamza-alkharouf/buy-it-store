@@ -1,0 +1,12 @@
+
+.breadcrumbs{
+    margin-top: 10vmax;
+    margin-left: 5vmax;
+    margin-bottom: 5vmax;
+}
+
+@media screen and (max-width: 910px) {
+    .breadcrumbs{
+        margin-top: 15vmax;
+    }
+}

@@ -1,0 +1,21 @@
+.navbar {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+
+
+.nav {
+  /* background-color: rgb(190, 85, 141) !important; */
+  background-color: rgb(255, 255, 255) !important;
+
+}
+.navbar-light .navbar-nav .nav-link{
+  color: white;
+
+}
+
+.Container{
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}

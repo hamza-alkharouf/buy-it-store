@@ -1,0 +1,31 @@
+.updateProfile {
+  width: 100vw;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(231, 231, 231);
+  position: fixed;
+  left: 0;
+  background-image: url("https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: auto;
+
+}
+.classContainer > .container{
+  margin: 10vmax auto;
+
+}
+
+
+
+@media screen and (max-width: 865px) {
+  .classContainer >.container{
+    margin-top: 20vmax;
+  
+  }
+  
+
+}

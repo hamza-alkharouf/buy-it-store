@@ -1,0 +1,39 @@
+.speedDial {
+    position: fixed;
+    right: 3vmax;
+    top: 2vmax;
+  }
+  .imglogo{
+    width: 70px;
+  }
+  .MuiButtonBase-root{
+    border-radius: 100% !important ;
+  }
+  .speedDialIcon {
+    width: 56px;
+    height: 56px;
+    border-radius: 100%;
+  }
+  a:hover {
+    color: rgb(118, 51, 142) !important;
+    transform: scale(1.1);
+  }
+
+  @media (min-width: 991px) and (max-width: 1100px){
+
+    .speedDial{
+      top: 80px;
+    }
+  }
+  @media screen and (max-width: 870px) {
+    .speedDial{
+      top: 100px;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .speedDial{
+      right: 80px;
+      top: 20px;
+
+    }
+  }

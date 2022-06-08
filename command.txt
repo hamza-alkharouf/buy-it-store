@@ -1,0 +1,23 @@
+//React 
+ cd .\frontend\
+
+npx create-react-app .
+npm i axios react-alert-template-basic react-helmet react-redux redux redux-thunk redux-devtools-extension react-router-dom overlay-navbar
+npm install react-icons
+npm i webfontloader
+npm i react-rating-stars-component
+npm install --save react-alert
+npm i react-material-ui-carousel
+npm install @mui/material
+npm install @mui/icons-material
+npm install @mui/styles
+npm install @material-ui/lab
+npm install react-js-pagination
+npm i country-state-city
+npm install @stripe/react-stripe-js @stripe/stripe-js
+npm install --save react-chartjs-2 chart.js
+
+//
+npm i express-fileupload
+npm i cloudinary
+npm install stripe --save
